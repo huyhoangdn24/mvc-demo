@@ -29,4 +29,13 @@ public class HelloController {
 
 		return "helloWorld/greeting";
 	}
+	@RequestMapping("/hello/{person}/{country}")
+	public  String greeting2(@RequestParam(name = "person") String person,
+							 @RequestParam(name = "country", required = false, defaultValue = "Viet Nam") String country,
+							 Model model) {
+		model.addAttribute("peronName", person);
+		model.addAttribute("country", country);
+
+		return "helloWorld/greeting";
+	}
 }
